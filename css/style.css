@@ -27,6 +27,18 @@ li a:hover{
     color: white;
 }
 
+.button{
+    background-color:azure;
+    color:violet;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
 /* li a:visited{
     background-color: violet;
     color: blue;
