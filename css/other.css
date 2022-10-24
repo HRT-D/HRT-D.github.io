@@ -73,3 +73,13 @@
 	background-position: 28vw;
 	background-attachment: fixed;
 }
+
+.a {
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
+.a:hover {
+	color: gray;
+	text-decoration: none;
+}
