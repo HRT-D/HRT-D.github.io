@@ -39,7 +39,7 @@ nav {
     /*z-index: 9999;*/
 }
 
-.menu {
+.navigation_menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -47,18 +47,18 @@ nav {
     /*z-index: 9999;*/
 }
 
-.menu li {
+.navigation_menu li {
     position: relative;
 }
 
-.menu li a {
+.navigation_menu li a {
     color: #fff;
     text-decoration: none;
     padding: 10px;
     transition: all 0.3s ease;
 }
 
-.menu li a::before {
+.navigation_menu li a::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -72,7 +72,7 @@ nav {
     /*z-index: 9999;*/
 }
 
-.menu li:hover > a::before {
+.navigation_menu li:hover > a::before {
     transform: scaleX(1);
     /*z-index: 9999;*/
 }
