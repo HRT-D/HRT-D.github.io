@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="navigation/css/navigation.css">
+  <title>主页</title>
+</head>
+<body>
+
+<nav class="head">
+  <div class="logo">
+    <img src="navigation/images/blackLogo.jpg" alt="logo">
+  </div>
+  <ul class="navigation_menu">
+    <li><a href="#" >主页</a></li>
+    <li><a href="news/index.html">车队动态</a></li>
+    <li><a href="team/index.html">关于我们</a></li>
+    <li><a href="sponsor/index.html">赞助商</a></li>
+  </ul>
+
+</nav>
+
+<video autoplay muted="true" width="100%" height="90%" loop style="position: relative; top:50px;" >
+  <source src="http://hrt-perception.icu:8090/static/car.mp4" type="video/mp4">
+</video>
+<!--<script>-->
+<!--  var video = document.getElementById("myVideo");-->
+
+<!--  // 设置默认音量，取值范围为 0 到 1，0 表示静音，1 表示最大音量-->
+<!--  video.volume = 0.7; // 这里将默认音量设置为 70%-->
+<!--</script>-->
+</body>
+</html>
+
+
+
+<!--20231009-->
+<!--打不开-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <title>3D</title>-->
+<!--  <meta charset="utf-8">-->
+<!--  &lt;!&ndash; 自适应 &ndash;&gt;-->
+<!--  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
+<!--  <style>-->
+<!--    * {-->
+<!--      margin: 0;-->
+<!--      padding: 0;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script src="js/three.js"></script>-->
+<!--<script type="text/javascript" src="js/OrbitControls.js"></script>-->
+<!--<script type="text/javascript" src="js/FBXLoader.js"></script>-->
+<!--<script type="text/javascript" src="js/inflate.min.js"></script>-->
+<!--<script type="text/javascript" src="js/DirectionalLightHelper.js"></script>-->
+<!--<script>-->
+<!--  var stats, light;-->
+<!--  var camera, scene, raycaster, renderer;-->
+
+<!--  var mouse = new THREE.Vector2(), INTERSECTED;//相交的-->
+<!--  var radius = 100, theta = 0;-->
+
+<!--  init();-->
+<!--  animate();-->
+
+<!--  function init() {-->
+
+
+<!--    // init scene-->
+<!--    scene = new THREE.Scene();-->
+<!--    scene.background = new THREE.Color( 0xf0f0f0 );-->
+
+
+<!--    camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 10000);-->
+<!--    camera.position.set(12, 13, 12);-->
+<!--//        camera.lookAt( scene.position );-->
+<!--    camera.lookAt( new THREE.Vector3(0, 0, 0));-->
+<!--    scene.add(camera);-->
+
+
+
+<!--    //light-->
+
+<!--    light = new THREE.DirectionalLight( 0xffffff, 1 );-->
+<!--    light.position.set( 5, 10, 16 ).normalize();-->
+<!--    //向量属性向量转换为单位向量，方向设置为和原向量相同，长度为1-->
+<!--    light.intensity=1.2;//强度-->
+<!--    scene.add(light);-->
+
+<!--    //底座-->
+<!--    var loader = new THREE.FBXLoader();-->
+<!--    loader.load("fbx/dijifbx.FBX", function(objectBottom) {-->
+<!--      objectBottom.traverse(function(child) {-->
+<!--        if (child instanceof THREE.Mesh) {-->
+<!--          child.material.side = THREE.DoubleSide;-->
+<!--        }-->
+<!--      });-->
+<!--      objectBottom.scale.multiplyScalar(0.5);//3倍大小-->
+<!--//        var mesh1 = objectBottom;-->
+<!--      objectBottom.position.set(0,0,0);-->
+<!--      objectBottom.rotation.y = -Math.PI;//旋转180度-->
+<!--      scene.add(objectBottom);-->
+<!--    });-->
+
+
+<!--    //机床-->
+<!--    var loader = new THREE.FBXLoader();-->
+<!--    loader.load("car.fbx", function(object1) {-->
+<!--      object1.traverse(function(child) {-->
+<!--        if (child instanceof THREE.Mesh) {-->
+<!--          child.material.side = THREE.DoubleSide;-->
+<!--        }-->
+<!--      });-->
+<!--      object1.scale.multiplyScalar(0.5);//3倍大小-->
+<!--//        var mesh1 = objectBottom;-->
+<!--      object1.position.set(-3,-4,-3);-->
+<!--      object1.rotation.x = -Math.PI*0.5;//旋转180度-->
+<!--      object1.rotation.z = Math.PI;-->
+<!--      scene.add(object1);-->
+<!--    });-->
+
+
+<!--    var loader = new THREE.FBXLoader();-->
+<!--    loader.load("fbx/7000fbxnew.FBX", function(object2) {-->
+<!--      object2.traverse(function(child) {-->
+<!--        if (child instanceof THREE.Mesh) {-->
+<!--          child.material.side = THREE.DoubleSide;-->
+<!--        }-->
+<!--      });-->
+<!--      object2.scale.multiplyScalar(0.5);//3倍大小-->
+<!--//        var mesh1 = objectBottom;-->
+<!--      object2.position.set(4,-5.8,-3);-->
+<!--      object2.rotation.x = -Math.PI*0.5;//旋转180度-->
+<!--      object2.rotation.z = Math.PI;-->
+<!--      scene.add(object2);-->
+<!--    });-->
+
+
+<!--    //搬运车-->
+<!--    var loader = new THREE.FBXLoader();-->
+<!--    loader.load("fbx/xuanzhuanbanyuenche.FBX", function(object3) {-->
+<!--      object3.traverse(function(child) {-->
+<!--        if (child instanceof THREE.Mesh) {-->
+<!--          child.material.side = THREE.DoubleSide;-->
+<!--        }-->
+<!--      });-->
+<!--      object3.scale.multiplyScalar(0.5);//3倍大小-->
+<!--//        var mesh1 = objectBottom;-->
+<!--      object3.position.set(0,0,4.2);-->
+<!--//        objectBottom.rotation.x = -Math.PI;//旋转180度-->
+<!--      scene.add(object3);-->
+<!--    });-->
+
+<!--    //射线-->
+<!--    raycaster = new THREE.Raycaster();-->
+<!--    /*   var raycaster = new THREE.Raycaster();-->
+<!--       var mouseVector = new THREE.Vector3();*/-->
+
+
+<!--    //renderer-->
+<!--    renderer = new THREE.WebGLRenderer({ antialias: true });-->
+<!--    renderer.setSize( window.innerWidth, window.innerHeight );-->
+<!--    document.getElementsByTagName("body")[0].appendChild(renderer.domElement);-->
+
+<!--    //监听-->
+<!--    document.addEventListener( "mousedown", onDocumentMouseDown, false );-->
+
+<!--    //窗口变化-->
+<!--    window.addEventListener( "resize", onWindowResize, false );-->
+
+
+<!--    //插件-->
+<!--    var controls = new THREE.OrbitControls( camera, renderer.domElement );//camera和render的变量和照相机与渲染器设置的变量一致才行-->
+
+<!--    // 如果使用animate方法时，将此函数删除-->
+<!--    //controls.addEventListener( 'change', render );-->
+<!--    // 使动画循环使用时阻尼或自转 意思是否有惯性-->
+<!--    controls.enableDamping = true;-->
+<!--    //动态阻尼系数 就是鼠标拖拽旋转灵敏度-->
+<!--    //controls.dampingFactor = 0.25;-->
+<!--    //是否可以缩放-->
+<!--    controls.enableZoom = true;-->
+<!--    //是否自动旋转-->
+<!--    controls.autoRotate = true;-->
+<!--    //设置相机距离原点的最远距离-->
+<!--    controls.minDistance  = 1;-->
+<!--    //设置相机距离原点的最远距离-->
+<!--    controls.maxDistance  = 200;-->
+<!--    //是否开启右键拖拽-->
+<!--    controls.enablePan = true;-->
+
+<!--  }//function结束-->
+
+<!--  //窗口变化-->
+<!--  function onWindowResize() {-->
+
+<!--    camera.aspect = window.innerWidth / window.innerHeight;-->
+<!--//				camera.updateProjectionMatrix();-->
+
+<!--    renderer.setSize( window.innerWidth, window.innerHeight );-->
+
+<!--  }-->
+
+<!--  //坐标转换-->
+<!--  function onDocumentMouseDown( event ) {-->
+
+<!--    event.preventDefault();-->
+
+<!--    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;-->
+<!--    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;-->
+
+
+<!--    // 通过摄像机和鼠标位置更新射线-->
+<!--    raycaster.setFromCamera( mouse, camera );-->
+
+<!--    // 计算物体和射线的焦点-->
+<!--    var intersects = raycaster.intersectObjects( scene.children ,true);-->
+
+
+<!--    if ( intersects.length > 0 ) {//有物体的时候-->
+
+
+<!--      if ( INTERSECTED != intersects[ 0 ].object ) {//上一次选中不等于当前的选中，就是替换的时候，intersects[ 0 ]就是当前的选中 在最前面的，它是自动排序的-->
+<!--        if ( INTERSECTED )-->
+<!--          if( INTERSECTED.material .length==undefined){-->
+<!--            INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );//上一次选中的要换回原来的材料-->
+<!--          }-->
+<!--        INTERSECTED = intersects[ 0 ].object;-->
+<!--        if( INTERSECTED.material .length==undefined){-->
+<!--          INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();//把当前的材料保存起来-->
+<!--          INTERSECTED.material.emissive.setHex( 0xff0000 );//换颜色-->
+<!--        }-->
+<!--      }-->
+<!--    } else {//选中空白处的时候-->
+<!--//-->
+<!--      if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );-->
+<!--      INTERSECTED = null;-->
+<!--    }-->
+<!--  }-->
+<!--  function animate() {-->
+<!--    requestAnimationFrame( animate );-->
+<!--    render();-->
+<!--  }-->
+
+<!--  function render() {-->
+<!--    renderer.render( scene, camera );-->
+<!--  }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
