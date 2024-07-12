@@ -1,0 +1,29 @@
+{
+  "name": "my_open",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tweenjs/tween.js": "^23.1.2",
+    "@videojs-player/vue": "^1.0.0",
+    "axios": "^1.7.2",
+    "element-plus": "^2.7.6",
+    "mock": "^0.1.1",
+    "three": "0.125.0",
+    "tsparticles": "^2.12.0",
+    "vanta": "^0.5.24",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.3",
+    "vue3-particles": "^2.12.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "less": "^4.2.0",
+    "vite": "^5.2.8"
+  }
+}
